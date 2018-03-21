@@ -1,5 +1,6 @@
 package com.codetutor.dialogdemo;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -9,9 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonSimpleAlert;
+    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker, buttonCustomDateTimePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonSimpleAlert = (Button)findViewById(R.id.buttonSimpleAlert);
+        buttonDatePicker = (Button)findViewById(R.id.buttonDatePicker);
+        buttonTimepPicker = (Button)findViewById(R.id.buttonTimePicker);
+        buttonCustomDateTimePicker = (Button)findViewById(R.id.buttonCustomDateTimePicker);
 
         buttonSimpleAlert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,7 +33,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
+
+        buttonTimepPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
+
+        buttonCustomDateTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showCustomDateTimePicker();
+            }
+        });
+
+
     }
+
+    private void showDatePickerDialog(){
+        MyDatePickerDialogFragment datePickerDialogFragment = new MyDatePickerDialogFragment();
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("TODAY",Calendar.getInstance());
+        datePickerDialogFragment.setArguments(bundle);
+        datePickerDialogFragment.show(getFragmentManager(),"datepicker");
+    }
+
+    private void showTimePickerDialog(){
+        MyTimePickerDialogFragment timePickerDialogFragment = new MyTimePickerDialogFragment();
+        timePickerDialogFragment.show(getFragmentManager(),"timepicker");
+
+    }
+
+    private void showCustomDateTimePicker(){
+        CustomDateAndTimePicker customPicker = new CustomDateAndTimePicker();
+        customPicker.show(getFragmentManager(),"customPicker");
+    }
+
 
     private void showAlertDialog(){
         AlertDialog.Builder builder;

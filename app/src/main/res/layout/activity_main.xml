@@ -16,4 +16,33 @@
         android:layout_marginTop="34dp"
         android:text="Button"
         tools:text="Alert Dialog" />
+
+    <Button
+        android:id="@+id/buttonDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonSimpleAlert"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="Button DatePicker" />
+
+    <Button
+        android:id="@+id/buttonTimePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonDatePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:text="Button Timepicker" />
+
+    <Button
+        android:id="@+id/buttonCustomDateTimePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonTimePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="Button Custom Date Time" />
+
+
 </RelativeLayout>
