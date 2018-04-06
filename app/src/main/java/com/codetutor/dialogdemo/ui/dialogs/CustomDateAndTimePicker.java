@@ -1,4 +1,4 @@
-package com.codetutor.dialogdemo;
+package com.codetutor.dialogdemo.ui.dialogs;
 
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.codetutor.dialogdemo.R;
 
 import java.util.Calendar;
 

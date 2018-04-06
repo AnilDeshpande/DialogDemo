@@ -1,4 +1,4 @@
-package com.codetutor.dialogdemo;
+package com.codetutor.dialogdemo.ui.dialogs;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
