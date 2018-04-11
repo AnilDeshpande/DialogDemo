@@ -1,6 +1,5 @@
 package com.codetutor.dialogdemo.ui.activities;
 
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.codetutor.dialogdemo.R;
-import com.codetutor.dialogdemo.ui.dialogs.CustomDateAndTimePicker;
 import com.codetutor.dialogdemo.ui.dialogs.MyDatePickerDialogFragment;
 import com.codetutor.dialogdemo.ui.dialogs.MyTimePickerDialogFragment;
 
@@ -19,7 +17,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker, buttonCustomDateTimePicker;
+    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSimpleAlert = (Button)findViewById(R.id.buttonSimpleAlert);
         buttonDatePicker = (Button)findViewById(R.id.buttonDatePicker);
         buttonTimepPicker = (Button)findViewById(R.id.buttonTimePicker);
-        buttonCustomDateTimePicker = (Button)findViewById(R.id.buttonCustomDateTimePicker);
 
         buttonSimpleAlert.setOnClickListener(this);
         buttonDatePicker.setOnClickListener(this);
         buttonTimepPicker.setOnClickListener(this);
-        buttonCustomDateTimePicker.setOnClickListener(this);
 
     }
 
@@ -44,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonSimpleAlert: showAlertDialog(); break;
             case R.id.buttonDatePicker: showDatePickerDialog();break;
             case R.id.buttonTimePicker: showTimePickerDialog(); break;
-            case R.id.buttonCustomDateTimePicker: showCustomDateTimePicker(); break;
         }
     }
 
@@ -82,11 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MyTimePickerDialogFragment timePickerDialogFragment = new MyTimePickerDialogFragment();
         timePickerDialogFragment.show(getFragmentManager(),"timepicker");
 
-    }
-
-    private void showCustomDateTimePicker(){
-        CustomDateAndTimePicker customPicker = new CustomDateAndTimePicker();
-        customPicker.show(getFragmentManager(),"customPicker");
     }
 
 
