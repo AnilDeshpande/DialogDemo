@@ -61,13 +61,6 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
         this.hobbiesSelectionListener=hobbiesSelectionListener;
     }
 
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.setTitle(getString(R.string.title_select_hobby));
-        return dialog;
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
