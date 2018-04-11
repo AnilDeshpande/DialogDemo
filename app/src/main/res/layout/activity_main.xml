@@ -44,14 +44,17 @@
         android:layout_marginTop="42dp"
         android:text="Button Custom Date Time" />
 
-    <Button
-        android:id="@+id/buttonCustomDialog"
+    <TextView
+        android:id="@+id/textViewCustomDialog"
+        android:padding="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/holo_green_light"
         android:layout_below="@+id/buttonCustomDateTimePicker"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
-        android:text="Button Custom Dilog" />
+        android:text="Click here" />
 
 
 </RelativeLayout>
