@@ -44,5 +44,14 @@
         android:layout_marginTop="42dp"
         android:text="Button Custom Date Time" />
 
+    <Button
+        android:id="@+id/buttonCustomDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCustomDateTimePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="Button Custom Dilog" />
+
 
 </RelativeLayout>

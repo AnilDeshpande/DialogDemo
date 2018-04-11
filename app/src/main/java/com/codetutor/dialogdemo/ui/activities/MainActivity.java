@@ -14,12 +14,13 @@ import com.codetutor.dialogdemo.R;
 import com.codetutor.dialogdemo.ui.dialogs.CustomDateAndTimePicker;
 import com.codetutor.dialogdemo.ui.dialogs.MyDatePickerDialogFragment;
 import com.codetutor.dialogdemo.ui.dialogs.MyTimePickerDialogFragment;
+import com.codetutor.dialogdemo.ui.dialogs.NewCustomDialog;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker, buttonCustomDateTimePicker;
+    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker, buttonCustomDateTimePicker, buttonCustomDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDatePicker = (Button)findViewById(R.id.buttonDatePicker);
         buttonTimepPicker = (Button)findViewById(R.id.buttonTimePicker);
         buttonCustomDateTimePicker = (Button)findViewById(R.id.buttonCustomDateTimePicker);
+        buttonCustomDialog = (Button)findViewById(R.id.buttonCustomDialog);
 
         buttonSimpleAlert.setOnClickListener(this);
         buttonDatePicker.setOnClickListener(this);
         buttonTimepPicker.setOnClickListener(this);
         buttonCustomDateTimePicker.setOnClickListener(this);
+        buttonCustomDialog.setOnClickListener(this);
 
     }
 
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonDatePicker: showDatePickerDialog();break;
             case R.id.buttonTimePicker: showTimePickerDialog(); break;
             case R.id.buttonCustomDateTimePicker: showCustomDateTimePicker(); break;
+            case R.id.buttonCustomDialog: showCustomDialog();break;
         }
     }
 
@@ -82,6 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MyTimePickerDialogFragment timePickerDialogFragment = new MyTimePickerDialogFragment();
         timePickerDialogFragment.show(getFragmentManager(),"timepicker");
 
+    }
+
+    private void showCustomDialog(){
+        NewCustomDialog newCustomDialog=new NewCustomDialog();
+        newCustomDialog.show(getFragmentManager(),"customdialog");
     }
 
     private void showCustomDateTimePicker(){
