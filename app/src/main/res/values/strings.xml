@@ -7,7 +7,7 @@
         <item>Cricket</item>
         <item>Gym</item>
     </string-array>
-    <string-array name="title_select_hobby">Select Hobby</string-array>
+    <string name="title_select_hobby">Select Hobby</string>
     <string name="hint_add_hobby">Add Hobby</string>
     <string name="string_cancel">Cancel</string>
     <string name="string_add">Add</string>

@@ -1,5 +1,6 @@
 package com.codetutor.dialogdemo.ui.dialogs;
 
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -46,13 +47,31 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
         public void onHobbiesSelected(List<String> hobbies);
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_Holo_Light_Dialog);
+        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light_Dialog);
+        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Dialog);
+        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light_Dialog);
+        //setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_Holo_Light);
+    }
+
     public void setHobbiesSelectionListener(HobbiesSelectionListener hobbiesSelectionListener){
         this.hobbiesSelectionListener=hobbiesSelectionListener;
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Dialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.setTitle(getString(R.string.title_select_hobby));
+        return dialog;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        getDialog().setTitle(getString(R.string.title_select_hobby));
         rootView = inflater.inflate(R.layout.dialog_hobby,container,false);
         initUI();
         return rootView;
