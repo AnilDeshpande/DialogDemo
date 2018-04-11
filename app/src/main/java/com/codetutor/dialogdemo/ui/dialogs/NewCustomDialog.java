@@ -51,10 +51,21 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
         this.hobbiesSelectionListener=hobbiesSelectionListener;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_Holo_Light_Dialog);
+        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light_Dialog);
+        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Dialog);
+        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light_Dialog);
+        //setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_Holo_Light);
+    }
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        getDialog().setTitle(R.string.title_select_hobby);
         rootView = inflater.inflate(R.layout.dialog_hobby,container,false);
         initUI();
         return rootView;
