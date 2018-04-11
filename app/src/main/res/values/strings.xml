@@ -6,7 +6,6 @@
         <item>Hiking</item>
         <item>Cricket</item>
         <item>Gym</item>
-        <item>None</item>
     </string-array>
     <string-array name="title_select_hobby">Select Hobby</string-array>
     <string name="hint_add_hobby">Add Hobby</string>

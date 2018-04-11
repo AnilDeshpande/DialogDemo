@@ -31,10 +31,9 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
     public static final String TAG = NewCustomDialog.class.getSimpleName();
 
     View rootView;
-    View addContainer, listViewContainer;
+    View listViewContainer;
     ListView listViewHobbies;
-    EditText editTextHobby;
-    Button buttonAdd,buttonCancel, buttonDone;
+    Button buttonDone;
 
     List<String> hobbies;
     List<String> selectedHobbies = new ArrayList<String>();
@@ -51,7 +50,6 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
         this.hobbiesSelectionListener=hobbiesSelectionListener;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -61,17 +59,10 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
     }
 
     private void initUI(){
-        addContainer = rootView.findViewById(R.id.addContainer);
+
         listViewContainer = rootView.findViewById(R.id.listViewContainer);
-
         listViewHobbies = (ListView)rootView.findViewById(R.id.listViewHobby);
-        editTextHobby = (EditText)rootView.findViewById(R.id.editTextHobby);
-        buttonAdd = (Button)rootView.findViewById(R.id.buttonAdd);
-        buttonCancel = (Button)rootView.findViewById(R.id.buttonCancel);
         buttonDone = (Button)rootView.findViewById(R.id.buttonDone);
-
-        buttonCancel.setOnClickListener(this);
-        buttonAdd.setOnClickListener(this);
         listViewHobbies.setOnItemClickListener(this);
         buttonDone.setOnClickListener(this);
     }
@@ -93,17 +84,8 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.buttonAdd:
-                addHobby(editTextHobby.getText().toString());
-                break;
-
             case R.id.buttonDone:
                 handleDone();
-                break;
-
-            case R.id.buttonCancel:
-                addContainer.setVisibility(View.GONE);
-                listViewContainer.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -123,25 +105,18 @@ public class NewCustomDialog extends DialogFragment implements View.OnClickListe
         DialogDemoApp.addHobby(hobby);
         ArrayAdapter<String> hobbyAdapter = new ArrayAdapter<String>(context,android.R.layout.simple_list_item_multiple_choice, DialogDemoApp.getHobbies());
         listViewHobbies.setAdapter(hobbyAdapter);
-        addContainer.setVisibility(View.GONE);
-        listViewContainer.setVisibility(View.VISIBLE);
     }
 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.i(TAG, ""+position);
-        if(DialogDemoApp.getHobbies().get(position).equals("None") && ((ListView)parent).getCheckedItemPositions().get(position)){
-            addContainer.setVisibility(View.VISIBLE);
-            listViewContainer.setVisibility(View.GONE);
-        }else {
-            SparseBooleanArray checkedPositions = ((ListView)parent).getCheckedItemPositions();
-            selectedHobbies.clear();
-            for(int i=0;i<checkedPositions.size();i++){
-                if (checkedPositions.valueAt(i)){
-                    selectedHobbies.add(DialogDemoApp.getHobbies().get(checkedPositions.keyAt(i)));
-                }
+        SparseBooleanArray checkedPositions = ((ListView)parent).getCheckedItemPositions();
+        selectedHobbies.clear();
+        for(int i=0;i<checkedPositions.size();i++){
+            if (checkedPositions.valueAt(i)){
+                selectedHobbies.add(DialogDemoApp.getHobbies().get(checkedPositions.keyAt(i)));
             }
         }
+
     }
 }

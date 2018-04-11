@@ -28,43 +28,6 @@
                 android:text="Done"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/addContainer"
-            android:padding="10dp"
-            android:gravity="center"
-            android:visibility="gone"
-            android:orientation="vertical">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editTextHobby"
-                android:hint="@string/hint_add_hobby"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonCancel"
-                    android:text="@string/string_cancel"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonAdd"
-                    android:text="@string/string_add"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
     </FrameLayout>
 
 </LinearLayout>
