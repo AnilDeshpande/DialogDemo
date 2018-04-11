@@ -1,6 +1,5 @@
 package com.codetutor.dialogdemo.ui.activities;
 
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codetutor.dialogdemo.R;
-import com.codetutor.dialogdemo.ui.dialogs.CustomDateAndTimePicker;
 import com.codetutor.dialogdemo.ui.dialogs.MyDatePickerDialogFragment;
 import com.codetutor.dialogdemo.ui.dialogs.MyTimePickerDialogFragment;
 import com.codetutor.dialogdemo.ui.dialogs.NewCustomDialog;
@@ -22,7 +20,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NewCustomDialog.HobbiesSelectionListener{
 
-    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker, buttonCustomDateTimePicker;
+    Button buttonSimpleAlert, buttonDatePicker, buttonTimepPicker;
     TextView textViewCustomDialog;
 
     @Override
@@ -33,13 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSimpleAlert = (Button)findViewById(R.id.buttonSimpleAlert);
         buttonDatePicker = (Button)findViewById(R.id.buttonDatePicker);
         buttonTimepPicker = (Button)findViewById(R.id.buttonTimePicker);
-        buttonCustomDateTimePicker = (Button)findViewById(R.id.buttonCustomDateTimePicker);
         textViewCustomDialog = (TextView) findViewById(R.id.textViewCustomDialog);
 
         buttonSimpleAlert.setOnClickListener(this);
         buttonDatePicker.setOnClickListener(this);
         buttonTimepPicker.setOnClickListener(this);
-        buttonCustomDateTimePicker.setOnClickListener(this);
         textViewCustomDialog.setOnClickListener(this);
 
     }
@@ -50,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonSimpleAlert: showAlertDialog(); break;
             case R.id.buttonDatePicker: showDatePickerDialog();break;
             case R.id.buttonTimePicker: showTimePickerDialog(); break;
-            case R.id.buttonCustomDateTimePicker: showCustomDateTimePicker(); break;
             case R.id.textViewCustomDialog: showCustomDialog();break;
         }
     }
@@ -95,11 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NewCustomDialog newCustomDialog=new NewCustomDialog();
         newCustomDialog.setHobbiesSelectionListener(this);
         newCustomDialog.show(getFragmentManager(),"customdialog");
-    }
-
-    private void showCustomDateTimePicker(){
-        CustomDateAndTimePicker customPicker = new CustomDateAndTimePicker();
-        customPicker.show(getFragmentManager(),"customPicker");
     }
 
     @Override
